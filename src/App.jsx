@@ -16,9 +16,22 @@ function App() {
     }
   };
 
+  const renderInstructions = (instructions) => {
+    // Split instructions based on the period (.)
+    const instructionLines = instructions.split(".");
+
+    // Filter out empty strings
+    const filteredLines = instructionLines.filter((line) => line.trim() !== "");
+
+    // Map each line to a new paragraph
+    return filteredLines.map((line, index) => (
+      <p key={index}>{line.trim()}.</p>
+    ));
+  };
+
   return (
-    <div className="App">
-      <h1 className="text-amber-700 text-3xl m-8">
+    <div className="App m-6">
+      <h1 className="text-amber-700 text-3xl m-5">
         Random Food Recipe Generator
       </h1>
       <button
@@ -30,9 +43,9 @@ function App() {
       {recipe && (
         <div>
           <h2 className="m-5 text-xl">{recipe.strMeal}</h2>
-          <div className="flex flex-row space-x-3">
+          <div className="flex flex-row space-x-8 m-5">
             <img src={recipe.strMealThumb} alt={recipe.strMeal} />
-            <p>{recipe.strInstructions}</p>
+            <div>{renderInstructions(recipe.strInstructions)}</div>
           </div>
         </div>
       )}
