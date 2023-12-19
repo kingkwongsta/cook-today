@@ -18,13 +18,22 @@ function App() {
 
   return (
     <div className="App">
-      <h1 className="text-amber-700 text-3xl">Random Food Recipe Generator</h1>
-      <button onClick={getRandomRecipe}>Get Random Recipe</button>
+      <h1 className="text-amber-700 text-3xl m-8">
+        Random Food Recipe Generator
+      </h1>
+      <button
+        className="border-solid border-2 p-2 rounded-lg m-5"
+        onClick={getRandomRecipe}
+      >
+        Get Random Recipe
+      </button>
       {recipe && (
         <div>
-          <h2>{recipe.strMeal}</h2>
-          <img src={recipe.strMealThumb} alt={recipe.strMeal} />
-          <p>{recipe.strInstructions}</p>
+          <h2 className="m-5 text-xl">{recipe.strMeal}</h2>
+          <div className="flex flex-row space-x-3">
+            <img src={recipe.strMealThumb} alt={recipe.strMeal} />
+            <p>{recipe.strInstructions}</p>
+          </div>
         </div>
       )}
     </div>
