@@ -17,16 +17,17 @@ function App() {
   };
 
   const renderInstructions = (instructions) => {
-    // Split instructions based on the period (.)
-    const instructionLines = instructions.split(".");
+    // Split instructions based on the period (.) followed by a space
+    const instructionLines = instructions.split(". ");
 
-    // Filter out empty strings
-    const filteredLines = instructionLines.filter((line) => line.trim() !== "");
-
-    // Map each line to a new paragraph
-    return filteredLines.map((line, index) => (
-      <p key={index}>{line.trim()}.</p>
-    ));
+    // Map each line to an ordered list item with a number
+    return (
+      <ol>
+        {instructionLines.map((line, index) => (
+          <li key={index}>{`${index + 1}) ${line}.`}</li>
+        ))}
+      </ol>
+    );
   };
 
   return (
