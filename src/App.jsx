@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import "./App.css";
 
 function App() {
   const [recipe, setRecipe] = useState(null);
@@ -17,7 +18,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Random Food Recipe Generator</h1>
+      <h1 className="text-amber-700 text-3xl">Random Food Recipe Generator</h1>
       <button onClick={getRandomRecipe}>Get Random Recipe</button>
       {recipe && (
         <div>
